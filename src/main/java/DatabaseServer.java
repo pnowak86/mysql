@@ -26,6 +26,10 @@ public class DatabaseServer {
 
 
     public ResultSet query(String sql) throws SQLException {
+        if(connection == null){
+            throw new IllegalStateException("call connect() first!!!");
+        }
+
         Statement statement = connection.createStatement();
         ResultSet temp = statement.executeQuery(sql);
         statement.close();

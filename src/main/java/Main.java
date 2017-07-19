@@ -19,6 +19,16 @@ public class Main {
 
         DatabaseServer databaseServer = new DatabaseServer("localhost","javadb","user0","pas123");
 
+        try {
+            databaseServer.connect();
+            databaseServer.query("select * from users;");
+
+
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         String dbUser = "user0";
         String dbPassword = "pas123";
         Connection conn = null;
